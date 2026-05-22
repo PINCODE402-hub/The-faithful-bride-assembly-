@@ -1089,6 +1089,7 @@ body.admin-mode .delete-sermon-trigger {
     
     /* NEW: Flexbox centering */
     display: flex;
+    flex-direction: column;
     justify-content: center; /* Horizontally center */
     align-items: center;     /* Vertically center */
     opacity: 0;
