@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Faithful Bride Assembly | Community & Prayer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2b4c7e">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-logo">The Faithful Bride Assembly</div>
+        
+        <div class="nav-controls">
+            <button class="btn-toggle" id="theme-toggle"><i class="fas fa-moon"></i></button>
+            <button class="admin-lock-btn" id="admin-gate-toggle" title="Admin Portal"><i class="fas fa-lock"></i></button>
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sermons.html">Sermons</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="community.html">Community</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="container community-layout">
+        
+        <!-- Live Fellowship Chat Window -->
+        <section class="chat-container">
+            <h2><i class="fas fa-comments"></i> Fellowship Chat</h2>
+            <div id="chat-box" class="chat-box">
+                <!-- Messages will load here in real time -->
+            </div>
+            <form id="chat-form" class="chat-input-area">
+                <input type="text" id="chat-username" placeholder="Your Name" required>
+                <div class="input-row">
+                    <input type="text" id="chat-message" placeholder="Type a message..." required>
+                    <button type="submit" class="btn-send"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Prayer Request Wall & Form -->
+        <section class="prayer-container">
+            <h2><i class="fas fa-hands-praying"></i> Prayer Wall</h2>
+            
+            <!-- Submit Prayer Form -->
+            <form id="prayer-form" class="prayer-form-box">
+                <h3>Submit a Prayer Request</h3>
+                <div class="input-row">
+                    <input type="text" id="prayer-name" placeholder="Your Name (Leave blank for Anonymous)">
+                </div>
+                <textarea id="prayer-text" placeholder="What can our community pray for you about?" required></textarea>
+                
+                <div class="form-group" style="margin: 15px 0; display: flex; gap: 20px; font-size: 0.9rem;">
+                    <label style="cursor: pointer;">
+                        <input type="radio" name="prayer-visibility" value="public" checked> Post to Public Prayer Wall
+                    </label>
+                    <label style="cursor: pointer; color: var(--accent-color);">
+                        <input type="radio" name="prayer-visibility" value="private"> Share Privately with Pastors Only
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn-primary">Post Request</button>
+            </form>
+
+            <div id="prayer-wall" class="prayer-wall">
+                
+            </div>
+        </section>
+        <section class="admin-event-section admin-only" style="margin-top: 40px; border-top: 3px solid var(--accent-color);">
+            <h2><i class="fas fa-inbox"></i> Leadership Private Prayer Inbox</h2>
+            <p style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 20px;">
+                The items below were submitted with the "Share Privately with Pastors Only" flag. Public users cannot pull or see these records.
+            </p>
+            <div id="admin-private-inbox" class="prayer-wall">
+                </div>
+        </section>
+    </main>
+    <div id="notification-toast" class="toast hidden">
+        <span id="toast-message">Success!</span>
+    </div>
+    <!-- Include JavaScript Modules -->
+    <script type="module" src="js/community.js?v=1.1"></script>
+</body>
+</html>

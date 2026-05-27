@@ -1,0 +1,1478 @@
+:root {
+    --primary-color: #2b4c7e;
+    --secondary-color: #4a7bb0;
+    --background-color: #f7f9fc;
+    --card-background: #ffffff;
+    --text-color: #333333;
+    --accent-color: #e07a5f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--card-background);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    sticky: top;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Update for the longer branding name */
+.nav-logo {
+    font-size: 1.2rem; /* Slightly smaller to accommodate longer text */
+    font-weight: bold;
+    color: var(--primary-color);
+    max-width: 200px; /* Prevents the logo from taking too much space */
+    line-height: 1.2;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 15px; /* Added gap to manage spacing */
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-color);
+}
+
+/* Hero & Video */
+.hero-section {
+    background: linear-gradient(rgba(43, 76, 126, 0.85), rgba(43, 76, 126, 0.95)), url('https://images.unsplash.com/photo-1438032005730-c779502df39b?q=80&w=1200') no-repeat center center/cover;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.video-container {
+    max-width: 800px;
+    margin: 30px auto 0 auto;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Content Grid */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--card-background);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Toast Notifications */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: opacity 0.5s ease;
+    z-index: 2000;
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #222;
+    color: #fff;
+    margin-top: 40px;
+}
+/* Layout split for Community Page */
+.community-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+@media (max-width: 768px) {
+    .community-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Chat Styling */
+.chat-container {
+    background: var(--card-background);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    height: 550px;
+}
+
+.chat-box {
+    flex-grow: 1;
+    overflow-y: auto;
+    border: 1px solid #e1e8ed;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: #fafbfc;
+}
+
+.chat-msg {
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: #eef2f7;
+    max-width: 85%;
+}
+
+.chat-msg strong {
+    color: var(--primary-color);
+    display: block;
+    font-size: 0.85rem;
+}
+
+.chat-input-area #chat-username {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ccd6dd;
+    border-radius: 4px;
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+}
+
+.input-row input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccd6dd;
+    border-radius: 4px;
+}
+
+.btn-send {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Prayer Wall Styling */
+.prayer-form-box {
+    background: var(--card-background);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.prayer-form-box input, .prayer-form-box textarea {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccd6dd;
+    border-radius: 4px;
+}
+
+.prayer-form-box textarea {
+    height: 80px;
+    resize: none;
+}
+
+.prayer-card {
+    background: var(--card-background);
+    padding: 15px;
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 4px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.prayer-card small {
+    color: #777;
+    display: block;
+    margin-top: 5px;
+}
+/* Page Header decoration */
+.page-header {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    margin-bottom: 30px;
+}
+
+/* Events Grid Layout */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.event-card {
+    background: var(--card-background);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--accent-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.event-date-badge {
+    background-color: #f0f4f8;
+    color: var(--primary-color);
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #eef2f6;
+}
+
+.event-body {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.event-body h3 {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.event-details {
+    font-size: 0.88rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.event-details p {
+    margin-bottom: 4px;
+}
+
+/* Separation Line */
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: #dddddd;
+    margin: 50px 0;
+}
+
+/* Admin Dashboard Form Setup */
+.admin-event-section {
+    background: var(--card-background);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.admin-event-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    color: #444;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+
+.admin-form input, .admin-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccd6dd;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+.admin-form textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+/* Sermon Matrix Grid Layout */
+.sermons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 30px;
+}
+
+.sermon-card {
+    background: var(--card-background);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Video wrapper within the card to ensure correct responsive scaling */
+.sermon-video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.sermon-video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.sermon-info {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.sermon-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+}
+
+.sermon-meta {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.sermon-meta span {
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* Admin Sermon Section adjustment */
+.admin-sermon-section {
+    background: var(--card-background);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    max-width: 700px;
+    margin: 0 auto;
+}
+/* Donation Layout Structure */
+.giving-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .giving-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+.giving-info blockquote {
+    font-style: italic;
+    background: #eef2f7;
+    border-left: 4px solid var(--primary-color);
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.giving-info cite {
+    display: block;
+    text-align: right;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.faq-box {
+    margin-top: 30px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+/* Giving Portal Box Elements */
+.donation-card-box {
+    background: var(--card-background);
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+.giving-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccd6dd;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 1rem;
+}
+
+.amount-presets {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.amt-btn {
+    background: #f0f4f8;
+    border: 2px solid transparent;
+    padding: 12px 0;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--primary-color);
+}
+
+.amt-btn:hover {
+    background: #e1e8ed;
+}
+
+.amt-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.custom-amount-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.custom-amount-wrapper span {
+    position: absolute;
+    left: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+.custom-amount-wrapper input {
+    width: 100%;
+    padding: 12px 12px 12px 30px;
+    border: 1px solid #ccd6dd;
+    border-radius: 4px;
+    font-size: 1.1rem;
+}
+
+/* Checkout Button Designs */
+.processor-buttons {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-checkout {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background 0.2s;
+}
+
+.paypal-theme {
+    background-color: #ffc439;
+    color: #003087;
+}
+
+.paypal-theme:hover {
+    background-color: #f4b41a;
+}
+
+.stripe-theme {
+    background-color: #635bff;
+    color: white;
+}
+
+.stripe-theme:hover {
+    background-color: #5349e0;
+}
+.momo-theme {
+    background-color: #ffcc00; /* Classic MoMo Yellow */
+    color: #000000;
+    border: 2px solid #e6b800;
+}
+
+.momo-theme:hover {
+    background-color: #e6b800;
+    transform: translateY(-2px);
+    transition: all 0.2s ease;
+}
+/* ==========================================
+   UPDATED DARK / LIGHT THEME ARCHITECTURE
+   ========================================== */
+
+/* 1. Expand the global variables to support theme switching */
+:root {
+    --primary-color: #2b4c7e;
+    --secondary-color: #4a7bb0;
+    --background-color: #f7f9fc;
+    --card-background: #ffffff;
+    --text-color: #333333;
+    --accent-color: #e07a5f;
+    --border-color: #ccd6dd;
+    --chat-bg: #fafbfc;
+    --chat-msg-bg: #eef2f7;
+}
+
+/* 2. Overrides when dark theme class is present on the body */
+body.dark-theme {
+    --background-color: #121212;      /* Deep dark background */
+    --card-background: #1e1e1e;       /* Dark card/navbar surfaces */
+    --text-color: #f5f5f5;            /* Off-white text for clean readability */
+    --secondary-color: #6da1df;       /* Slightly lighter blue for accessibility contrast */
+    --border-color: #333333;          /* Muted border dividers */
+    --chat-bg: #181818;               /* Dark contrast background for chat windows */
+    --chat-msg-bg: #2d2d2d;           /* Chat bubble colors for dark mode */
+}
+
+/* 3. Smooth global transition handling */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 4. Update core layout pieces to use the theme variables dynamically */
+.navbar, .card, .chat-container, .prayer-form-box, .prayer-card, .event-card, .admin-event-section, .admin-sermon-section, .donation-card-box {
+    background-color: var(--card-background) !important;
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a {
+    color: var(--text-color); /* Dynamically scales text light or dark based on mode */
+}
+
+.chat-box {
+    background-color: var(--chat-bg) !important;
+    border-color: var(--border-color) !important;
+}
+
+.chat-msg {
+    background-color: var(--chat-msg-bg) !important;
+}
+
+.admin-form input, .admin-form textarea, .prayer-form-box input, .prayer-form-box textarea, .chat-input-area #chat-username, .input-row input {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+.event-date-badge {
+    background-color: var(--background-color) !important;
+    color: var(--secondary-color) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+/* Add these to style.css */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.gallery-card {
+    background: var(--card-background);
+    border-radius: 8px;
+    overflow: hidden; /* Clips the image */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.gallery-img-wrapper {
+    width: 100%;
+    height: 250px; /* Forces a fixed height */
+    overflow: hidden;
+}
+
+.gallery-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crops image to fill the space without stretching */
+    display: block;
+}
+
+.gallery-info {
+    padding: 15px;
+}
+
+/* --- ADMIN RESTRICION & LOCKS --- */
+/* Ensure admin-only elements are always hidden unless the class is present */
+.admin-only {
+    display: none !important;
+}
+
+/* When in admin mode, show them */
+body.admin-mode .admin-only {
+    display: block !important;
+}
+
+/* Admin floating control button */
+.admin-lock-btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 8px;
+    margin-left: 15px;
+    transition: color 0.2s;
+}
+
+.admin-lock-btn:hover {
+    color: var(--accent-color);
+}
+/* Professional Prayer Card Tweaks */
+.prayer-card {
+    background: var(--card-background);
+    border-left: 4px solid var(--secondary-color);
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.prayer-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.prayer-actions {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 5px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 10px;
+}
+
+.btn-pray-counter {
+    background: var(--background-color);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.btn-pray-counter:hover {
+    background: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+}
+
+.btn-pray-counter i {
+    color: var(--accent-color);
+}
+/* Admin Moderation Button Actions */
+.btn-delete-moderation {
+    background: none;
+    border: none;
+    color: #e07a5f;
+    cursor: pointer;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.btn-delete-moderation:hover {
+    background: rgba(224, 122, 95, 0.1);
+}
+
+.chat-msg-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+/* Sermon Grid Layout Configurations */
+.sermons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: var(--border-color, #e2e8f0);
+    margin: 50px 0;
+}
+
+.admin-sermon-section {
+    background: var(--card-background);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+/* Event Section Layout */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.event-card {
+    background: var(--card-background);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.event-card h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+/* Admin Action Buttons */
+.btn-danger {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.btn-danger:hover {
+    background-color: #d62828;
+}
+
+.delete-event-btn {
+    background: transparent;
+    border: 1px solid #e63946;
+    color: #e63946;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-top: 10px;
+}
+
+.delete-event-btn:hover {
+    background: #e63946;
+    color: white;
+}
+/* Hide admin-only features for the public */
+.admin-only {
+    display: none;
+}
+
+/* Show them only when the admin is authenticated */
+body.is-admin .admin-only {
+    display: block;
+}
+.meeting-times {
+    padding: 60px 20px;
+    background: #f8f9fa;
+    text-align: center;
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 30px auto 0;
+}
+
+.schedule-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.schedule-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.schedule-card h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+/* Styling for the meeting times cards */
+.meeting-times {
+    padding: 60px 20px;
+    background: var(--background-color); /* Uses global background */
+    text-align: center;
+    transition: background 0.3s;
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 30px auto 0;
+}
+
+.schedule-card {
+    background: var(--card-background); /* Automatically switches to dark grey in dark mode */
+    color: var(--text-color);           /* Automatically switches to white in dark mode */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Ensure icons also stand out */
+.schedule-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color); /* Stays visible in both modes */
+    margin-bottom: 15px;
+}
+.contact-section {
+    margin-top: 50px;
+    padding: 60px 20px;
+    background: var(--card-background);
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color);
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+/* style.css */
+.admin-only {
+    display: none;
+}
+
+body.admin-mode .admin-only {
+    display: block;
+}
+/* Add this to style.css to enable dark mode */
+body.dark-mode {
+    --background-color: #1a1a1a;
+    --card-background: #2d2d2d;
+    --text-color: #e0e0e0;
+}
+
+/* Ensure the body transition is smooth */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+/* Dark Mode Overrides */
+body.dark-mode {
+    --background-color: #121212;
+    --card-background: #1e1e1e;
+    --text-color: #e0e0e0;
+}
+/* If using an icon for the lock */
+#admin-gate-toggle i.fa-lock { display: inline-block; }
+#admin-gate-toggle i.fa-unlock { display: none; }
+
+/* When in admin mode, flip the icon */
+body.admin-mode #admin-gate-toggle i.fa-lock { display: none; }
+body.admin-mode #admin-gate-toggle i.fa-unlock { display: inline-block; }
+
+/* Optional: Smooth transition for admin elements */
+.delete-btn { display: none; }
+body.admin-mode .delete-btn { display: block; }
+/* Hide admin controls by default */
+.admin-only {
+    display: none !important;
+}
+
+/* Show them only when the body has the admin-mode class */
+body.admin-mode .admin-only {
+    display: block !important;
+}
+
+/* Ensure the icon update is visible */
+.admin-lock-btn i {
+    transition: color 0.3s ease;
+}
+/* --- Sermon Delete Button Styling --- */
+.delete-sermon-trigger {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.delete-sermon-trigger:hover {
+    background-color: #cc0000;
+}
+
+/* Ensure these are hidden unless the user is an admin */
+.delete-sermon-trigger {
+    display: none;
+}
+
+body.admin-mode .delete-sermon-trigger {
+    display: inline-block;
+}
+/* Use this inside your main layout CSS */
+.events-grid {
+    display: grid;
+    /* This creates as many columns as fit (min 300px wide), then stretches them */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+/* Modal Overlay */
+/* Ensure the modal background covers the full screen */
+/* Center everything using Flexbox */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.95);
+    
+    /* NEW: Flexbox centering */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Horizontally center */
+    align-items: center;     /* Vertically center */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ensure the image doesn't exceed screen bounds */
+.modal-content {
+    max-width: 90vw;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Close button - larger for mobile touch targets */
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .modal-content { max-width: 95%; }
+    .close-modal { top: 10px; right: 20px; }
+}
+.modal-content {
+    transition: transform 0.3s ease; /* Smooth zoom */
+    cursor: zoom-in;
+}
+
+/* Container for controls */
+.modal-controls {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.zoom-btn {
+    padding: 10px 20px;
+    background: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+/* Ensure readable text in Chat for Dark Mode */
+body.dark-mode .chat-msg {
+    color: rgb(29, 29, 29); /* A light grey that is easy to read against dark backgrounds */
+}
+
+/* Optional: Make the username pop a bit more in dark mode */
+body.dark-mode .chat-msg-header strong {
+    color: black;
+}
+/* --- Responsive Design --- */
+.hamburger { 
+    display: none; 
+    background: none; 
+    border: none; 
+    font-size: 1.5rem; 
+    cursor: pointer; 
+    color: var(--text-color);
+}
+/* Styling the Theme Toggle Button */
+.btn-toggle {
+    background: none;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-toggle:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+/* Mobile Adjustments for Spacing */
+@media (max-width: 768px) {
+    /* Create a container for the controls to align them nicely */
+    .nav-controls {
+        display: flex;
+        align-items: center;
+        gap: 15px; /* Adds space between Dark Mode and Hamburger */
+    }
+
+    /* Hide the text if you eventually add labels, keeping it icon-only */
+    .btn-toggle {
+        margin-right: 10px; /* Specific push away from hamburger */
+    }
+}
+/* 1. Tablet & Mobile Base */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem 5%;
+        flex-direction: row; /* Keeps items side-by-side */
+        justify-content: space-between; /* Pushes logo left, button right */
+        align-items: center;
+    }
+
+    /* Ensure logo doesn't get squashed */
+    .nav-logo {
+        font-size: 1.4rem;
+        white-space: normal;
+        line-height: 1.2;
+        word-break: break-word;
+        max-width: 60%;
+    }
+
+    /* Adjust the links dropdown position */
+    .nav-links {
+        top: 60px; /* Adjust this to match your navbar height */
+    }
+
+    .nav-links {
+        margin-top: 15px;
+        gap: 10px;
+    }
+
+    .nav-links {
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; left: 0;
+        background: var(--card-background);
+        padding: 20px 0;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active { display: flex; } /* Shown when toggled */
+    
+    .nav-links li { margin: 10px 0; }
+
+    .hero-content {
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    /* Stack gallery and event grids */
+    .events-grid, .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 2. Mobile Specific Adjustments */
+@media (max-width: 480px) {
+    h1 { font-size: 1.8rem; }
+    
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .giving-layout {
+        flex-direction: column;
+    }
+}
+
+/* 3. Ensure images don't overflow their containers */
+img, iframe {
+    max-width: 100%;
+    height: auto;
+}
+/* Hide hamburger on desktop */
+.hamburger { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+
+@media (max-width: 768px) {
+    .hamburger { display: block; }
+}
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background: linear-gradient(135deg, #f7f9fc 0%, #e2eaf0 100%);
+}
+
+.login-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-card h2 { margin-bottom: 10px; color: var(--primary-color); }
+.login-card p { margin-bottom: 25px; opacity: 0.8; font-size: 0.9rem; }
+
+.form-group { text-align: left; margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
+
+.login-card input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.w-100 { width: 100%; padding: 12px; font-size: 1rem; cursor: pointer; }
+
+.back-link {
+    display: block;
+    margin-top: 20px;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+
+}
+/* Dark Mode Overrides */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+body.dark-mode .login-card {
+    background-color: #2c2f33; /* Dark card background */
+    color: #ffffff;
+}
+
+body.dark-mode .login-card input {
+    background-color: #3e4247;
+    border: 1px solid #4a4a4a;
+    color: #ffffff;
+}
+
+body.dark-mode .login-card h2, 
+body.dark-mode .login-card label {
+    color: #ffffff;
+}
+.announcement-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background-color: var(--card-bg); /* Use your existing theme variables */
+}
+.announcement-card h3 { margin-top: 0; }
+/* 1. Admin Announcement Section Container */
+#admin-announce-section {
+    background-color: var(--card-background);
+    padding: 25px;
+    border: 2px dashed var(--accent-color); /* Matches your warning/accent style */
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 800px;
+    display: none; /* Hidden by default */
+}
+
+/* 2. Admin Logic Class - Works with app.js 'admin-mode' */
+body.admin-mode #admin-announce-section {
+    display: block; /* Shown only when user is logged in */
+}
+
+/* 3. Input and Textarea Styling */
+#admin-announce-section h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+#admin-announce-section input, 
+#admin-announce-section textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+#admin-announce-section textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+/* 4. Button Styling */
+#post-announce-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+#post-announce-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* 5. Responsive Adjustment for Mobile */
+@media (max-width: 768px) {
+    #admin-announce-section {
+        margin: 10px;
+        padding: 15px;
+    }
+}
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-top: 10px;
+}
+
+.delete-btn:hover {
+    background-color: #a71d2a;
+}
+/* Style for all delete buttons */
+.delete-event-btn, 
+.delete-gallery-btn, 
+.delete-announce-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+
+.delete-event-btn:hover, 
+.delete-gallery-btn:hover, 
+.delete-announce-btn:hover {
+    background-color: #a71d2a;
+}
+/* --- Notification Button Responsiveness --- */
+#subscribe-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    /* Hide the text on smaller screens */
+    #subscribe-btn .subscribe-text {
+        display: none; 
+    }
+
+    /* Transform into a circular icon button */
+    #subscribe-btn {
+        padding: 0;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%; /* Morphs from a rounded rectangle to a circle */
+    }
+
+    /* Ensure the icon is perfectly centered */
+    #subscribe-btn i {
+        margin: 0;
+        font-size: 1.1rem;
+    }
+    
+    /* Tighten spacing around the toggle buttons so everything fits */
+    .notification-setup {
+        margin: 0 5px !important; 
+    }
+}

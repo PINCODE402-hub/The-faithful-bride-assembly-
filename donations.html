@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Faithful Bride Assembly | Give Online</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2b4c7e">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-logo">The Faithful Bride Assembly</div>
+        
+        <div class="nav-controls">
+            <button class="btn-toggle" id="theme-toggle"><i class="fas fa-moon"></i></button>
+            <button class="admin-lock-btn" id="admin-gate-toggle" title="Admin Portal"><i class="fas fa-lock"></i></button>
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sermons.html">Sermons</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="community.html">Community</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header bg-alt">
+        <h1>Supporting the Ministry</h1>
+        <p>Your generosity helps us serve our community and share hope around the world.</p>
+    </header>
+
+    <main class="container giving-layout">
+        
+        <section class="giving-info">
+            <h2>Why We Give</h2>
+            <p>At Faith Church, we believe giving is an act of worship. It's a tangible expression of trust in God's provision and a partnership in the work of the Gospel.</p>
+            <blockquote>
+                "Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver." 
+                <cite>— 2 Corinthians 9:7</cite>
+            </blockquote>
+            
+            <div class="faq-box">
+                <h3>Is it secure?</h3>
+                <p>Yes. All transactions are securely encrypted and processed by leading enterprise payment gateways. Your financial details are never stored on our church servers.</p>
+            </div>
+        </section>
+
+        <section class="donation-card-box">
+            <h2>Online Giving Portal</h2>
+            <form id="donation-form" class="giving-form">
+                
+                <div class="form-group">
+                    <label for="gift-fund">Select Fund</label>
+                    <select id="gift-fund" required>
+                        <option value="general">Tithes & Offerings (General Fund)</option>
+                        <option value="missions">Global & Local Missions</option>
+                        <option value="building">Building & Expansion Fund</option>
+                        <option value="youth">Youth & Kids Ministry</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Select Amount</label>
+                    <div class="amount-presets">
+                        <button type="button" class="amt-btn" data-amount="20">$20</button>
+                        <button type="button" class="amt-btn" data-amount="50">$50</button>
+                        <button type="button" class="amt-btn active" data-amount="100">$100</button>
+                        <button type="button" class="amt-btn" data-amount="250">$250</button>
+                    </div>
+                    
+                    <div class="custom-amount-wrapper">
+                        <span>$</span>
+                        <input type="number" id="custom-amount" placeholder="Other Amount" min="1" value="100">
+                    </div>
+                </div>
+
+                <div class="processor-buttons">
+                    <button type="button" id="pay-momo" class="btn-checkout momo-theme">
+                        <i class="fas fa-mobile-alt"></i> Give with Mobile Money (MoMo)
+                    </button>
+                    
+                    <button type="button" id="pay-paypal" class="btn-checkout paypal-theme">
+                        <i class="fab fa-paypal"></i> Give with PayPal / Card
+                    </button>
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 The Faithful Bride Assembly. All Rights Reserved.</p>
+    </footer>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <div id="notification-toast" class="toast hidden">
+        <span id="toast-message">Success!</span>
+    </div>
+    <script type="module" src="js/donations.js"></script>
+</body>
+</html>
