@@ -1,0 +1,8 @@
+{
+  "name": "Faithful Bride Assembly",
+  "short_name": "FaithfulBride",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "icons": [{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+}
